@@ -26,7 +26,7 @@ const ItemCtrl = (function() {
       return data;
     }
   }
-  
+
 })();
 
 // UI Controller
@@ -36,5 +36,13 @@ const UICtrl = (function() {
 
 // App Controller
 const App = (function(ItemCtrl, UICtrl) {
-
+  
+  return {
+    init: function() {
+      console.log('Initializing App...')
+    }
+  }
 })(ItemCtrl, UICtrl);
+
+// Initialize App
+App.init();
