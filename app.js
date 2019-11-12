@@ -22,7 +22,7 @@ const ItemCtrl = (function() {
     totalCalories: 0
   }
 
-  // public methods
+  // Public methods
   return {
     getItems: function() {
       return data.items;
@@ -40,7 +40,17 @@ const UICtrl = (function() {
 
   // Public Methods
   return {
+    populateItemsList: function(items) {
+      let html = '';
 
+      items.forEach(function(item){
+        html +=`<li class="collection-item" id="item-${item.id}">
+        <strong>${item.name}: </strong> <em>${item.calories}
+          <i class="edit-item fa fa-pencil"></i>
+        </a>
+      </li>`
+      })
+    }
   }
 })();
 
