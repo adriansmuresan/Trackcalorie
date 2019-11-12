@@ -1,5 +1,6 @@
 // Storage Controller
 
+
 // Item Controller
 const ItemCtrl = (function() {
   // Item constructor
@@ -21,7 +22,11 @@ const ItemCtrl = (function() {
     totalCalories: 0
   }
 
+  // public methods
   return {
+    getItems: function() {
+      return data.items;
+    },
     logData: function() {
       return data;
     }
@@ -29,17 +34,28 @@ const ItemCtrl = (function() {
 
 })();
 
+
 // UI Controller
 const UICtrl = (function() {
 
+  // Public Methods
+  return {
+
+  }
 })();
+
 
 // App Controller
 const App = (function(ItemCtrl, UICtrl) {
   
+  // Public methods
   return {
     init: function() {
-      console.log('Initializing App...')
+      // Fetch items from data structure
+      const items = ItemCtrl.getItems();
+      
+      // Populate list with items
+      UICtrl.populateItemsList(items);
     }
   }
 })(ItemCtrl, UICtrl);
