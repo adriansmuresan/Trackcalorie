@@ -63,8 +63,8 @@ const UICtrl = (function() {
     },
     getItemInput: function() {
       return {
-        name: '',
-        calories: ''
+        name: document.querySelector(UISelectors.itemNameInput).value,
+        calories: document.querySelector(UISelectors.itemCaloriesInput).value
       }
     },
     getSelectors: function() {
@@ -89,6 +89,13 @@ const App = (function(ItemCtrl, UICtrl) {
   const itemAddSubmit = function(e) {
     // Get form input from UI Controller
     const input = UICtrl.getItemInput();
+
+    // Check for name and calorie input
+    if(input.name !== '' && input.calories !== '') {
+      // Add item
+      const newItem = ItemCtrl.addItem(input.name, input.calories); 
+
+    }
 
     e.preventDefault();
   }
