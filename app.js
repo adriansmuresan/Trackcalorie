@@ -57,6 +57,9 @@ const ItemCtrl = (function() {
       });
       return found;
     },
+    getCurrentItem: function() {
+      return data.currentItem;
+    },
     setCurrentItem: function(item) {
       data.currentItem = item;
     },
