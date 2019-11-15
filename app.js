@@ -184,6 +184,14 @@ const App = (function(ItemCtrl, UICtrl) {
     // Add item event
     document.querySelector(UISelectors.addBtn).addEventListener('click', itemAddSubmit);
 
+    // Disable submit on enter
+    document.addEventListener('keypress', function(e) {
+      if(e.keyCode === 13 || e.witch === 13) {
+        e.preventDefault();
+        return false;
+      }
+    })
+
     // Edit icon click event
     document.querySelector(UISelectors.itemList).addEventListener('click', itemEditClick);
 
