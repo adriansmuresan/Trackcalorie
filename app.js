@@ -83,6 +83,9 @@ const ItemCtrl = (function() {
       // Remove item
       data.items.splice(index, 1); 
     },
+    clearAllItems: function() {
+      data.items = [];
+    },
     getCurrentItem: function() {
       return data.currentItem;
     },
@@ -347,7 +350,13 @@ const App = (function(ItemCtrl, UICtrl) {
     UICtrl.clearEditState();
 
     e.preventDefault();
-  } 
+  }
+  
+  // Clear item event
+  const clearAllItemsClick = function() {
+    // Delete all items from data structure
+    ItemCtrl.clearAllItems();
+  }
 
   // Public methods
   return {
