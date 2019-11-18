@@ -71,6 +71,12 @@ const ItemCtrl = (function() {
       });
       return found;
     },
+    deleteItem: function(id) {
+      // Get ids
+      ids =data.items.map(function(item){
+        return item.id;
+      });
+    },
     getCurrentItem: function() {
       return data.currentItem;
     },
@@ -306,6 +312,17 @@ const App = (function(ItemCtrl, UICtrl) {
 
     e.preventDefault();
   }
+
+  // Delete button event
+  const itemDeleteSubmit = function(e) {
+    // Get current item 
+    const currentItem = ItemCtrl.getCurrentItem();
+
+    // Delete from data structure
+    ItemCtrl.deleteItem(currentItem.id);
+
+    e.preventDefault();
+  } 
 
   // Public methods
   return {
