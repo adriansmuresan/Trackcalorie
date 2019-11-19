@@ -4,7 +4,25 @@ const StorageCtrl = (function(){
   return {
     storeItem: function(item) {
       let items = [];
+      
+      // Check if any items in localstorage
+      if(localStorage.getItem('items') === null){
+        items = [];
+        // Push new item
+        items.push(item);
+        // Set local storage
+        localStorage.setItem('items', JSON.stringify(items));
+      } else {
+        // Get what is already in local storage
+        items = JSON.parse(localStorage.getItem('items'));
 
+        // Push new item
+        items.push(item);
+
+        // Re set local storage
+        localStorage.setItem('items', JSON.stringify(items));
+
+      }
     }
   }
 })();
