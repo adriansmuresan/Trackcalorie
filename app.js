@@ -1,5 +1,13 @@
 // Storage Controller
+const StorageCtrl = (function(){
+  // Public methods
+  return {
+    storeItem: function(item) {
+      let items = [];
 
+    }
+  }
+})();
 
 // Item Controller
 const ItemCtrl = (function() {
@@ -238,7 +246,7 @@ const UICtrl = (function() {
 
 
 // App Controller
-const App = (function(ItemCtrl, UICtrl) {
+const App = (function(ItemCtrl, StorageCtrl, UICtrl) {
   // load event Listeners
   const loadEventListeners = function() {
     // Get UI selectors
@@ -288,6 +296,9 @@ const App = (function(ItemCtrl, UICtrl) {
       const totalCalories = ItemCtrl.getTotalCalories();
       // Add total calories to UI
       UICtrl.showTotalCalories(totalCalories);
+
+      // Store in locaStorage
+      StorageCtrl.storeItem(newItem);
 
       // Clear fields
       UICtrl.clearInput();
@@ -405,7 +416,7 @@ const App = (function(ItemCtrl, UICtrl) {
       loadEventListeners();
     }
   }
-})(ItemCtrl, UICtrl);
+})(ItemCtrl, StorageCtrl, UICtrl);
 
 // Initialize App
 App.init();
